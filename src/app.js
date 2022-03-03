@@ -8,10 +8,11 @@ const app = express();
 app.use(express.json());
 app.use(cookie());
 //TODO: configurar cors
+
 //database connect
 connection();
 
 //routes
-app.use(router);
+app.use('/api',router);
 
 module.exports = app;

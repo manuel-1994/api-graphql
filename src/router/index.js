@@ -1,9 +1,10 @@
 const { Router } = require("express");
+const graphql = require("./graphql.routes");
+const userRouter = require("./users.routes");
 
 const router = Router();
 
-router.get('/',(req,res)=>{
-  return res.send('hola mundo');
-});
+userRouter(router);
+graphql(router);
 
 module.exports = router;
