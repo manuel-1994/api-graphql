@@ -6,19 +6,25 @@ class Users{
     return data;
   }
 
-  async create(data){
-    const saveData = await UserModel.create(data)
-    return {success:true, message: 'usuario creado exitosamente', saveData}
+  async get(query){
+    const data = await UserModel.findOne(query)
+    return data;
   }
 
-  async update(data,id){
-    const dataUpdated = await UserModel.findByIdAndUpdate(id, data)
-    return {success:true, message: 'usuario actualizado', dataUpdated}
+  async create(query){
+    const saveData= await UserModel.create(query.user)
+    return {success: true, message: 'usuario creado', data: saveData}
   }
 
-  async delete(id){
-    const dataDeleted = await UserModel.findByIdAndDelete(id);
-    return {success:true, message: 'usuario eliminado', dataDeleted}
+  async update(query){
+    const dataUpdated = await UserModel.findByIdAndUpdate({_id:query.id},query.user,{new:true})
+    console.log(query);
+    return {success:true, message: 'usuario actualizado', data:dataUpdated}
+  }
+
+  async delete(query){
+    const dataDeleted = await UserModel.findByIdAndDelete({_id:query.id});
+    return {success:true, message: 'usuario eliminado', data:dataDeleted}
   }
 }
 

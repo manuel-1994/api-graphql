@@ -10,8 +10,14 @@ const userSchema = new Schema({
   phone: String,
   email: String,
   password: String,
-  role: Number,
-  create_at: Date
+  role:{
+    type: Number,
+    default: 0
+  },
+  create_at: {
+    type: Date,
+    default: new Date()
+  }
 });
 
 const UserModel = mongoose.model('users', userSchema);
