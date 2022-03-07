@@ -1,0 +1,19 @@
+type Query{
+  users: [User]
+  properties(propertie:PropertieInput): [Propertie]
+  validateAuth: Auth
+  signOut: Auth
+}
+
+type Mutation{
+  createUser(user: UserInput): UserMessage
+  updateUser(id:ID!, user:UserInput): UserMessage
+  deleteUser(id:ID!): UserMessage
+
+  createPropertie(propertie: PropertieInput): PropertieMessage
+  updatePropertie(id:ID!, propertie:PropertieInput): PropertieMessage
+  deletePropertie(id:ID!): PropertieMessage
+
+  signIn(user: SignInInput): AuthMessage
+  signUp(user: UserInput): AuthMessage
+}

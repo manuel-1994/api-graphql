@@ -1,0 +1,36 @@
+type Propertie{
+    id: ID
+    name: String
+    type: String
+    status: String
+    city: String
+    pool: Boolean
+    parking: String
+    baths: Int
+    beds: Int
+    acres: Int
+    yearBuilt: Int
+    price: Int
+    agent: Agent
+    }
+
+type PropertieMessage{
+  success: Boolean
+  message: String
+  data: Propertie
+}
+
+input PropertieInput{
+  name: String
+  type: String
+  status: String
+  city: String
+  pool: Boolean
+  parking: String
+  baths: Int
+  beds: Int
+  acres: Int
+  yearBuilt: Int
+  price: Int
+  agent: InputAgent
+}

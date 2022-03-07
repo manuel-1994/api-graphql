@@ -1,0 +1,26 @@
+type User{
+      id: ID
+      firstName: String
+      lastName: String
+      Address: String
+      phone: String
+      email: String
+      password: String
+      role: Int
+}
+
+input UserInput{
+      firstName: String
+      lastName: String
+      Address: String
+      phone: String
+      email: String
+      password: String
+      role:Int
+}
+
+type UserMessage{
+      success: Boolean
+      message: String
+      data: User
+}

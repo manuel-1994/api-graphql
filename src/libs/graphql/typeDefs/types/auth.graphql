@@ -1,0 +1,18 @@
+type Auth{
+  logged: Boolean
+  loggedOut: Boolean
+  message: String
+  user: String
+}
+
+input SignInInput{
+  email: String,
+  password: String
+}
+
+type AuthMessage{
+  success: Boolean
+  message: String
+  data: User
+  token: String
+}

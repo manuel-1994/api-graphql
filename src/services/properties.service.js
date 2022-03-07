@@ -18,7 +18,6 @@ class Properties{
 
   async update(query){
     const dataUpdated = await PropertiesModel.findByIdAndUpdate({_id:query.id},query.propertie,{new:true})
-    console.log(query);
     return {success:true, message: 'propiedad actualizada', data:dataUpdated}
   }
 
