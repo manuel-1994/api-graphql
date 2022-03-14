@@ -2,10 +2,14 @@ const { GraphQLError } = require("graphql");
 const Properties = require("../../../services/properties.service");
 const propertiesServ = new Properties();
 
+
 const resolvers ={
   propertieQuery:{
     properties(_,args){
       return propertiesServ.getAll(args)
+    },
+    propertie(_,args){
+      return propertiesServ.getByAdviser(args.adviserId)
     }
   },
 

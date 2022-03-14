@@ -1,16 +1,19 @@
 const {userQuery,userMutation} = require('./user')
 const {propertieQuery,propertieMutetion} = require('./propertie')
 const {authQuery, authMutation} = require('./auth')
+const {adviserQuery, adviserMutation} = require('./adviser')
 const resolvers = {
   Query:{
     ...userQuery,
     ...propertieQuery,
-    ...authQuery
+    ...authQuery,
+    ...adviserQuery
   },
   Mutation:{
     ...userMutation,
     ...propertieMutetion,
-    ...authMutation
+    ...authMutation,
+    ...adviserMutation
   },
   
 }

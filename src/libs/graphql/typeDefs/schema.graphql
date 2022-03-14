@@ -1,6 +1,8 @@
 type Query{
   users: [User]
-  properties(propertie:PropertieInput): [Propertie]
+  advisers: [Adviser]
+  properties(propertie:PropertieInput): [Properties]
+  propertie(adviserId:ID!): Propertie
   validateAuth: Auth
   signOut: Auth
 }
@@ -13,6 +15,8 @@ type Mutation{
   createPropertie(propertie: PropertieInput): PropertieMessage
   updatePropertie(id:ID!, propertie:PropertieInput): PropertieMessage
   deletePropertie(id:ID!): PropertieMessage
+
+  createAdviser(adviser: AdviserInput): AdviserMessage
 
   signIn(user: SignInInput): AuthMessage
   signUp(user: UserInput): AuthMessage

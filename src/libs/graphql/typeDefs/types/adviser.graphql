@@ -1,0 +1,19 @@
+type Adviser {
+  id: ID
+  fullname: String
+  phone: String
+  email: String
+}
+
+type AdviserMessage {
+  success: Boolean
+  message: String
+  data: Adviser
+}
+
+input AdviserInput{
+  id: String
+  fullname: String
+  phone: String
+  email: String
+}

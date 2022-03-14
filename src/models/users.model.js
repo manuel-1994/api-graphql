@@ -2,11 +2,10 @@ const {mongoose} = require('../config/database/mongo');
 
 const {Schema} = mongoose
 
-const userSchema = new Schema({
-  firstName: String,
-  lastName: String,
+const userSchema = new Schema({ 
+  fullName: String,
   age: Date,
-  Address: String,
+  address: String,
   phone: String,
   email: String,
   password: String,
@@ -14,7 +13,7 @@ const userSchema = new Schema({
     type: Number,
     default: 0
   },
-  create_at: {
+  created_at: {
     type: Date,
     default: new Date()
   }

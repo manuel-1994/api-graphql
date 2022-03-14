@@ -7,8 +7,13 @@ class Properties{
   }
 
   async get(query){
-    const data = await PropertiesModel.findOne(query)
+    const data = await PropertiesModel.findOne({_id:query})
     return data;
+  }
+
+  async getByAdviser(query){
+    const data = await PropertiesModel.findOne({adviser:query}).populate("adviser")
+    return data
   }
 
   async create(query){
@@ -25,6 +30,7 @@ class Properties{
     const dataDeleted = await PropertiesModel.findByIdAndDelete({_id:query.id});
     return {success:true, message: 'propiedad eliminada', data:dataDeleted}
   }
+
 }
 
 module.exports = Properties;

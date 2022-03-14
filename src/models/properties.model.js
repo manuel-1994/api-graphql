@@ -13,13 +13,13 @@ const propertiesSchemas = new Schema({
   acres: Number,
   yearBuilt: Number,
   price: Number,
-  create_at: {
+  adviser: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "advisers"
+  },
+  created_at: {
     type: Date,
     default: new Date()
-  },
-  agent: {
-    name: String,
-    phone: Number
   }
 })
 

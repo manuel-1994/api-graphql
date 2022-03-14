@@ -1,9 +1,0 @@
-type Agent {
-  name: String
-  phone: String
-}
-
-input InputAgent{
-  name: String
-  Phone: String
-}
