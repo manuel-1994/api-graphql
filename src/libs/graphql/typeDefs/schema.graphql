@@ -1,8 +1,11 @@
+scalar Date
+
 type Query{
   users: [User]
   advisers: [Adviser]
   properties(propertie:PropertieInput): [Properties]
-  propertie(adviserId:ID!): Propertie
+  propertie(id:ID!): Propertie
+  appointments: [Appointment]
   validateAuth: Auth
   signOut: Auth
 }
@@ -17,6 +20,8 @@ type Mutation{
   deletePropertie(id:ID!): PropertieMessage
 
   createAdviser(adviser: AdviserInput): AdviserMessage
+
+  createAppointment(appointment: AppointmentInput): AppointmentMessage
 
   signIn(user: SignInInput): AuthMessage
   signUp(user: UserInput): AuthMessage

@@ -2,8 +2,8 @@ const tokenToCookie = require("../../../helpers/tokenToCookie");
 const Auth = require("../../../services/auth.service")
 const authServ = new Auth();
 
-const resolvers={
-  authQuery:{
+const authResolvers={
+  Query:{
     validateAuth(_,args,context){
       if(context.role>=0){
         return {logged:true,user:context.email}
@@ -21,7 +21,7 @@ const resolvers={
     }
   },
 
-  authMutation:{
+  Mutation:{
     async signIn(_,args,context){
       const data = await authServ.signIn(args.user)
       if(data.success){
@@ -39,4 +39,4 @@ const resolvers={
   }
 }
 
-module.exports= resolvers
+module.exports= authResolvers

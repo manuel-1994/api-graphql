@@ -9,8 +9,8 @@ const graphql = (app) =>{
     
     if(token){
       const decoded = jwt.verify(token, "123456")
-      const {role,email} = decoded
-      context = {res,role,email}
+      const {role,email, _id} = decoded
+      context = {res,role,email, id:_id}
     }else{
       context = {res, role:"UNAUTHENTICATED"}
     }

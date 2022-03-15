@@ -7,13 +7,8 @@ class Properties{
   }
 
   async get(query){
-    const data = await PropertiesModel.findOne({_id:query})
+    const data = await PropertiesModel.findOne({_id:query}).populate("adviser")
     return data;
-  }
-
-  async getByAdviser(query){
-    const data = await PropertiesModel.findOne({adviser:query}).populate("adviser")
-    return data
   }
 
   async create(query){

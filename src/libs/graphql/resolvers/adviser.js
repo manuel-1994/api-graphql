@@ -2,8 +2,8 @@ const { GraphQLError } = require("graphql")
 const Adviser = require("../../../services/advisers.Service")
 const advisersServ = new Adviser();
 
-const resolvers = {
-  adviserQuery:{
+const adviserResolvers = {
+  Query:{
     advisers(_,args,context){
       if(context.role>=1){
         return advisersServ.getAll(args.adviser)
@@ -11,7 +11,7 @@ const resolvers = {
       return new GraphQLError('No tienes permisos')
     }
   },
-  adviserMutation:{
+  Mutation:{
     createAdviser(_,args, context){
       if(context.role>=1){
         return advisersServ.create(args.adviser)
@@ -21,4 +21,4 @@ const resolvers = {
   }
 }
 
-module.exports = resolvers
+module.exports = adviserResolvers

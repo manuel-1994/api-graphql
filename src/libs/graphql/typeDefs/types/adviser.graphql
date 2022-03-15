@@ -12,7 +12,6 @@ type AdviserMessage {
 }
 
 input AdviserInput{
-  id: String
   fullname: String
   phone: String
   email: String

@@ -1,0 +1,17 @@
+type Appointment{
+  id: ID
+  user: ID
+  propertie: Propertie
+  date_for: Date
+}
+
+type AppointmentMessage {
+  success: Boolean
+  message: String
+  data: Appointment
+}
+
+input AppointmentInput{
+  propertie: ID
+  date_for: String
+}

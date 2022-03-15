@@ -3,17 +3,17 @@ const Properties = require("../../../services/properties.service");
 const propertiesServ = new Properties();
 
 
-const resolvers ={
-  propertieQuery:{
+const propertieResolvers ={
+  Query:{
     properties(_,args){
       return propertiesServ.getAll(args)
     },
     propertie(_,args){
-      return propertiesServ.getByAdviser(args.adviserId)
+      return propertiesServ.get(args.id)
     }
   },
 
-  propertieMutetion:{
+  Mutation:{
     createPropertie(_,args, context){
       if(context.role>=1){
         return propertiesServ.create(args)
@@ -35,4 +35,4 @@ const resolvers ={
   }
 }
 
-module.exports = resolvers
+module.exports = propertieResolvers

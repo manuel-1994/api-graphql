@@ -2,8 +2,8 @@ const { GraphQLError } = require("graphql")
 const Users = require("../../../services/users.service")
 const usersServ = new Users()
 
-const resolvers = {
-  userQuery:{
+const userResolvers = {
+  Query:{
     users(_,args,context){
       if(context.role>=1){
         return usersServ.getAll()
@@ -11,7 +11,7 @@ const resolvers = {
       return new GraphQLError('No tienes permisos')
     }
   },
-  userMutation:{
+  Mutation:{
     createUser(_,args, context){
       if(context.role>=1){
         return usersServ.create(args)
@@ -33,4 +33,4 @@ const resolvers = {
   }
 }
 
-module.exports = resolvers
+module.exports = userResolvers
